@@ -1,16 +1,20 @@
 class Store
-  @pizza
+  attr_reader :pizza
 
   def initialize
-    @pizza=createPizza
+  end
+
+  def orderPizza(type)
+    @pizza=createPizza(type)
     @pizza.prepare
-    @pizza.cook
+    @pizza.bake
+    @pizza.cut
     @pizza.box
   end
 
   protected
 
-  def createPizza
+  def createPizza(type)
   end
 
 end

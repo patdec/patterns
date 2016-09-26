@@ -1,15 +1,22 @@
 require './store'
-require './ny_pizza'
+require './ny_cheese_pizza'
+require './ny_veggie_pizza'
 
 class NYStore < Store
+
   def initialize
     super
   end
 
   protected
 
-  def createPizza
-    @pizza=NYPizza.new
+  def createPizza(type)
+    case type
+      when :cheese
+        @pizza=NYCheesePizza.new
+      when :veggie
+        @pizza=NYVeggiePizza.new
+    end
   end
 
 end
